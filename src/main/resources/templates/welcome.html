@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <title>spring-boot-example</title>
+</head>
+<body>
+    <form action="#" th:action="@{/hello}" th:object="${member}" method="POST">
+        <table>
+            <tr>
+                <td>お名前は？</td>
+            </tr>
+            <tr>
+                <td><input type="text" th:field="*{name}"/></td>
+                <td th:if="${#field.hasErrors('name')}" th:errors="*{name}">お名前バリデーションエラー</td>
+            </tr>
+            <tr>
+                <td><button type="submit">送信</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
